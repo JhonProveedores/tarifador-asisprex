@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tarifador Vial Asisprex 2025</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      color: #1f2933;
+    }
+    header {
+      background: #ffffff;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header img {
+      height: 40px;
+      object-fit: contain;
+    }
+    header h1 {
+      font-size: 20px;
+      margin: 0;
+      font-weight: 600;
+      color: #111827;
+    }
+    main {
+      max-width: 1100px;
+      margin: 24px auto 40px;
+      padding: 0 16px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px rgba(15,23,42,0.08);
+    }
+    .card h2 {
+      margin-top: 0;
+      font-size: 18px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card h2 span.tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      background: #eef2ff;
+      color: #3730a3;
+      padding: 2px 8px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+    }
+    .section-description {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 12px;
+    }
+    .grid {
+      display: grid;
+      gap: 12px 16px;
+    }
+    @media (min-width: 768px) {
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 4px;
+      display: block;
+    }
+    select, input[type="text"], input[type="number"] {
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      padding: 8px 10px;
+      font-size: 14px;
+      outline: none;
+      background: #f9fafb;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+    select:focus, input:focus {
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 1px rgba(79,70,229,0.3);
+      background: #ffffff;
+    }
+    input[readonly] {
+      background: #f3f4f6;
+      cursor: default;
+    }
+    .hint {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #ecfeff;
+      color: #0f766e;
+      border: 1px solid #99f6e4;
+    }
+    .badge-danger {
+      background: #fef2f2;
+      color: #b91c1c;
+      border-color: #fecaca;
+    }
+    .badge-info {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border-color: #bfdbfe;
+    }
+    .pill {
+      display: inline-flex;
+      gap: 6px;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #f3f4ff;
+      color: #3730a3;
+      align-items: center;
+    }
+    .pill strong { font-weight: 600; }
+
+    button {
+      border-radius: 999px;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #4f46e5;
+      color: #ffffff;
+      box-shadow: 0 8px 16px rgba(79,70,229,0.35);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+    }
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(79,70,229,0.45);
+      background: #4338ca;
+    }
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 5px 10px rgba(79,70,229,0.4);
+    }
+    button.secondary {
+      background: #e5e7eb;
+      color: #374151;
+      box-shadow: none;
+      margin-left: 8px;
+    }
+    .result {
+      margin-top: 16px;
+      border-radius: 14px;
+      padding: 16px;
+      background: #f9fafb;
+      border: 1px dashed #e5e7eb;
+      font-size: 14px;
+    }
+    .result h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+    .result table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 13px;
+    }
+    .result th, .result td {
+      padding: 6px 4px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+    }
+    .result th {
+      font-weight: 600;
+      color: #4b5563;
+    }
+    .result tfoot td {
+      font-weight: 700;
+    }
+    .muted {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 6px;
+    }
+    .highlight {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111827;
+      margin-top: 8px;
+    }
+    .highlight span {
+      color: #16a34a;
+    }
+    .tope {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #ecfdf5;
+      border: 1px solid #bbf7d0;
+      font-size: 13px;
+    }
+    .tope strong {
+      font-size: 15px;
+      color: #15803d;
+    }
+    .message {
+      font-size: 12px;
+      margin-top: 6px;
+    }
+    .message.info { color: #2563eb; }
+    .message.success { color: #15803d; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://assisprex.com/wp-content/uploads/logo-assisprex.png" alt="Assisprex Logo">
+    <h1>Tarifador Vial Asisprex 2025</h1>
+  </header>
+
+  <main>
+    <!-- 1. Vehículo -->
+    <section class="card">
+      <h2>Información del vehículo <span class="tag">Paso 1</span></h2>
+      <p class="section-description">
+        Selecciona la <strong>marca, modelo y línea</strong> del vehículo. El sistema definirá el
+        <strong>tipo de grúa</strong> (liviano, tipo 300, 400, 600 o 900).
+      </p>
+      <div class="grid grid-3">
+        <div>
+          <label for="marca">Marca</label>
+          <select id="marca">
+            <option value="">Selecciona una marca</option>
+          </select>
+          <p class="hint">Ej: Chevrolet, Renault, Kenworth, International…</p>
+        </div>
+        <div>
+          <label for="modelo">Modelo</label>
+          <select id="modelo" disabled>
+            <option value="">Selecciona primero una marca</option>
+          </select>
+        </div>
+        <div>
+          <label for="linea">Línea / versión</label>
+          <select id="linea" disabled>
+            <option value="">Selecciona primero un modelo</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-top: 12px;">
+        <span class="pill">
+          Tipo de grúa detectado:
+          <strong><span id="tipoGruaLabel">—</span></strong>
+        </span>
+      </div>
+    </section>
+
+    <!-- 2. Distancias -->
+    <section class="card">
+      <h2>Ubicaciones y distancias <span class="tag">Paso 2</span></h2>
+      <p class="section-description">
+        Indica la <strong>ciudad del proveedor</strong>, el <strong>origen</strong> y el <strong>destino</strong>.
+        La matriz de distancias llenará los km si la ruta existe; si no, el asesor puede editarlos.
+      </p>
+
+      <div class="grid grid-3">
+        <div>
+          <label for="ciudadProveedor">Ciudad del proveedor</label>
+          <select id="ciudadProveedor">
+            <option value="">Selecciona una ciudad</option>
+          </select>
+        </div>
+        <div>
+          <label for="origen">Origen del servicio</label>
+          <select id="origen">
+            <option value="">Selecciona una ciudad</option>
+          </select>
+        </div>
+        <div>
+          <label for="destino">Destino del servicio</label>
+          <select id="destino">
+            <option value="">Selecciona una ciudad</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:14px;">
+        <div>
+          <label for="kmProvOrigen">Km Proveedor → Origen</label>
+          <input type="number" id="kmProvOrigen" min="0" step="0.1">
+          <p class="hint">Se llena con matriz si existe; si no, el asesor lo escribe.</p>
+        </div>
+        <div>
+          <label for="kmOrigenDestino">Km Origen → Destino</label>
+          <input type="number" id="kmOrigenDestino" min="0" step="0.1">
+          <p class="hint">También editable según la ruta real.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <span class="badge badge-info" id="mensajeMatriz">
+          La matriz de distancias se aplicará al cambiar las ciudades.
+        </span>
+      </div>
+
+      <!-- Zona Roja -->
+      <div style="margin-top:18px; border-top:1px dashed #e5e7eb; padding-top:14px;">
+        <label>Zona Roja (ZOMAC)</label>
+        <p class="section-description">
+          Si el recorrido involucra municipios ZOMAC, se habilitará el campo de
+          <strong>km en zona roja</strong> con recargo por km.
+        </p>
+        <div id="zonaRojaInfo" class="message info">
+          El sistema detectará ZOMAC según proveedor/origen/destino.
+        </div>
+        <div class="grid grid-2" id="zonaRojaCampos" style="margin-top:10px; display:none;">
+          <div>
+            <label for="kmZonaRoja">Km en Zona Roja (ZOMAC)</label>
+            <input type="number" id="kmZonaRoja" min="0" step="0.1">
+            <p class="hint">Se multiplica por el valor de recargo de zona roja.</p>
+          </div>
+          <div>
+            <span class="badge badge-danger">Recargo zona roja activo</span>
+            <p class="hint">Valor por km zona roja: <strong id="valorZonaRojaLabel"></strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Destapado -->
+      <div style="margin-top:18px; border-top:1px dashed #e5e7eb; padding-top:14px;">
+        <label for="kmDestapado">Km de vía destapada</label>
+        <div class="grid grid-2">
+          <div>
+            <input type="number" id="kmDestapado" min="0" step="0.1">
+            <p class="hint">Kilómetros de la ruta por vía sin pavimentar.</p>
+          </div>
+          <div>
+            <span class="badge">Recargo vía destapada activo</span>
+            <p class="hint">Valor por km destapado: <strong id="valorDestapadoLabel"></strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Cálculo -->
+    <section class="card">
+      <h2>Cálculo del tarifado <span class="tag">Paso 3</span></h2>
+      <p class="section-description">
+        Se aplicará el tarifado 2025 (banderazo, km según tipo de vehículo, recargos de zona roja y destapado)
+        y se mostrará el detalle <strong>item por item</strong>. Al final se calcula también un
+        <strong>tope máximo (+20%)</strong>.
+      </p>
+
+      <button id="calcularBtn">Calcular tarifado</button>
+      <button type="button" class="secondary" id="limpiarBtn">Limpiar formulario</button>
+
+      <div id="resultado" class="result" style="display:none;">
+        <h3>Detalle del tarifado</h3>
+        <div id="detalleRuta" class="muted"></div>
+        <table>
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>Cálculo</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody id="tablaItems"></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">Total servicio</td>
+              <td id="totalServicio"></td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="highlight">
+          Total a facturar: <span id="totalServicioGrande"></span>
+        </div>
+        <div class="tope">
+          <strong>Tope máximo (+20%):</strong>
+          <div id="topeMaximo"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const tarifario = {
+      banderazo: {
+        liviano: 64000,
+        tipo300: 110000,
+        tipo400: 136000,
+        tipo600: 195000,
+        tipo900: 254000
+      },
+      valorKm: {
+        liviano: 3300,
+        tipo300: 4100,
+        tipo400: 5200,
+        tipo600: 6200,
+        tipo900: 7300
+      },
+      recargos: {
+        zonaRoja: 1300,
+        destapado: 800
+      }
+    };
+
+    const vehiculos = [
+      {
+        marca: "Chevrolet",
+        modelos: [
+          { modelo: "Spark", lineas: ["Lite", "GT", "Life", "Go"], tipo_grua: "liviano" },
+          { modelo: "Sail", lineas: ["LT", "LS", "Sedán", "HB"], tipo_grua: "liviano" },
+          { modelo: "Onix", lineas: ["Joy", "LTZ", "Turbo"], tipo_grua: "liviano" },
+          { modelo: "Tracker", lineas: ["1.2 Turbo", "Premier"], tipo_grua: "liviano" },
+          { modelo: "NHR", lineas: ["Euro IV", "Euro V"], tipo_grua: "tipo300" },
+          { modelo: "NKR", lineas: ["Euro IV", "Euro V"], tipo_grua: "tipo400" },
+          { modelo: "NQR", lineas: ["Euro IV", "Euro V"], tipo_grua: "tipo600" },
+          { modelo: "FVR", lineas: ["Euro IV", "Euro V"], tipo_grua: "tipo900" }
+        ]
+      },
+      {
+        marca: "Renault",
+        modelos: [
+          { modelo: "Logan", lineas: ["Life", "Zen", "Intens"], tipo_grua: "liviano" },
+          { modelo: "Sandero", lineas: ["Life", "Zen", "Stepway"], tipo_grua: "liviano" },
+          { modelo: "Duster", lineas: ["Zen", "Intens", "Oroch"], tipo_grua: "liviano" },
+          { modelo: "Master", lineas: ["Furgón", "Pasajeros"], tipo_grua: "tipo300" }
+        ]
+      },
+      {
+        marca: "Toyota",
+        modelos: [
+          { modelo: "Hilux", lineas: ["DX", "SR", "SRV"], tipo_grua: "liviano" },
+          { modelo: "Fortuner", lineas: ["2.7", "Diésel"], tipo_grua: "liviano" },
+          { modelo: "Prado", lineas: ["TX", "TX-L", "VX"], tipo_grua: "liviano" },
+          { modelo: "Coaster", lineas: ["Bus 26 pasajeros"], tipo_grua: "tipo900" }
+        ]
+      },
+      {
+        marca: "Hyundai",
+        modelos: [
+          { modelo: "i10", lineas: ["Pop", "Grand"], tipo_grua: "liviano" },
+          { modelo: "Accent", lineas: ["GL", "GLS"], tipo_grua: "liviano" },
+          { modelo: "H1", lineas: ["9 pasajeros", "12 pasajeros"], tipo_grua: "tipo300" }
+        ]
+      },
+      {
+        marca: "Ford",
+        modelos: [
+          { modelo: "Fiesta", lineas: ["SE", "Titanium"], tipo_grua: "liviano" },
+          { modelo: "EcoSport", lineas: ["SE", "Titanium"], tipo_grua: "liviano" },
+          { modelo: "Ranger", lineas: ["XL", "XLT", "Limited"], tipo_grua: "liviano" },
+          { modelo: "Transit", lineas: ["Panel", "Pasajeros"], tipo_grua: "tipo300" }
+        ]
+      },
+      {
+        marca: "Hino",
+        modelos: [
+          { modelo: "Dutro", lineas: ["XL", "Euro IV"], tipo_grua: "tipo400" },
+          { modelo: "FC", lineas: ["Euro IV"], tipo_grua: "tipo600" },
+          { modelo: "GH", lineas: ["Euro IV"], tipo_grua: "tipo900" }
+        ]
+      },
+      {
+        marca: "Kenworth",
+        modelos: [
+          { modelo: "T800", lineas: ["Tractomula", "Dumper", "Carrotanque", "Volco", "Lowboy"], tipo_grua: "tipo900" },
+          { modelo: "T680", lineas: ["Tractocamión"], tipo_grua: "tipo900" },
+          { modelo: "T660", lineas: ["Tractomula"], tipo_grua: "tipo900" },
+          { modelo: "W900", lineas: ["Tractomula", "Clásico"], tipo_grua: "tipo900" },
+          { modelo: "T880", lineas: ["Mixer", "Dumper", "Volco"], tipo_grua: "tipo900" },
+          { modelo: "T370", lineas: ["Camión Medio", "Reparto"], tipo_grua: "tipo600" },
+          { modelo: "K270", lineas: ["Liviano de reparto"], tipo_grua: "tipo400" }
+        ]
+      },
+      {
+        marca: "International",
+        modelos: [
+          { modelo: "4700", lineas: ["Furgón", "Estacas", "Turbo"], tipo_grua: "tipo600" },
+          { modelo: "4900", lineas: ["Estacas", "Volco", "Doble Troque"], tipo_grua: "tipo900" },
+          { modelo: "DuraStar 4300", lineas: ["Furgón", "Planchón", "Reparto"], tipo_grua: "tipo600" },
+          { modelo: "DuraStar 4400", lineas: ["Furgón Pesado", "Cabezote Medio"], tipo_grua: "tipo900" },
+          { modelo: "ProStar", lineas: ["Tractocamión"], tipo_grua: "tipo900" },
+          { modelo: "WorkStar 7600", lineas: ["Mixer", "Dumper", "Volco"], tipo_grua: "tipo900" },
+          { modelo: "WorkStar 7500", lineas: ["Camión Pesado"], tipo_grua: "tipo900" },
+          { modelo: "LT Series", lineas: ["Tractomula"], tipo_grua: "tipo900" }
+        ]
+      }
+    ];
+
+    const ciudades = ["Bogotá", "Chía", "Zipaquirá", "Bucaramanga", "Corinto", "Cali"];
+
+    const distancias = {
+      "Bogotá": { "Chía": 25, "Zipaquirá": 50, "Bucaramanga": 400 },
+      "Chía": { "Bogotá": 25 },
+      "Zipaquirá": { "Bogotá": 50, "Bucaramanga": 358 },
+      "Corinto": { "Cali": 52 },
+      "Cali": { "Corinto": 52 }
+    };
+
+    const municipiosZOMAC = ["Corinto", "San Vicente del Caguán", "Tumaco"];
+
+    function formatoCOP(v) {
+      return v.toLocaleString("es-CO",{style:"currency",currency:"COP",maximumFractionDigits:0});
+    }
+    function esZOMAC(nombre) {
+      if (!nombre) return false;
+      return municipiosZOMAC.some(m => m.toLowerCase() === nombre.toLowerCase());
+    }
+    function obtenerKm(origen,destino){
+      if (distancias[origen] && typeof distancias[origen][destino]==="number") {
+        return distancias[origen][destino];
+      }
+      return null;
+    }
+
+    const marcaSelect = document.getElementById("marca");
+    const modeloSelect = document.getElementById("modelo");
+    const lineaSelect = document.getElementById("linea");
+    const tipoGruaLabel = document.getElementById("tipoGruaLabel");
+
+    const ciudadProveedorSelect = document.getElementById("ciudadProveedor");
+    const origenSelect = document.getElementById("origen");
+    const destinoSelect = document.getElementById("destino");
+    const kmProvOrigenInput = document.getElementById("kmProvOrigen");
+    const kmOrigenDestinoInput = document.getElementById("kmOrigenDestino");
+    const mensajeMatriz = document.getElementById("mensajeMatriz");
+
+    const zonaRojaInfo = document.getElementById("zonaRojaInfo");
+    const zonaRojaCampos = document.getElementById("zonaRojaCampos");
+    const kmZonaRojaInput = document.getElementById("kmZonaRoja");
+    const valorZonaRojaLabel = document.getElementById("valorZonaRojaLabel");
+    const valorDestapadoLabel = document.getElementById("valorDestapadoLabel");
+    const kmDestapadoInput = document.getElementById("kmDestapado");
+
+    const calcularBtn = document.getElementById("calcularBtn");
+    const limpiarBtn = document.getElementById("limpiarBtn");
+    const resultadoDiv = document.getElementById("resultado");
+    const tablaItemsBody = document.getElementById("tablaItems");
+    const totalServicioTd = document.getElementById("totalServicio");
+    const totalServicioGrandeSpan = document.getElementById("totalServicioGrande");
+    const topeMaximoDiv = document.getElementById("topeMaximo");
+    const detalleRutaDiv = document.getElementById("detalleRuta");
+
+    let tipoGruaActual = null;
+
+    function initVehiculos() {
+      vehiculos.forEach(v=>{
+        const opt=document.createElement("option");
+        opt.value=v.marca;
+        opt.textContent=v.marca;
+        marcaSelect.appendChild(opt);
+      });
+    }
+    function initCiudades() {
+      [ciudadProveedorSelect, origenSelect, destinoSelect].forEach(sel=>{
+        ciudades.forEach(c=>{
+          const opt=document.createElement("option");
+          opt.value=c;
+          opt.textContent=c;
+          sel.appendChild(opt.cloneNode(true));
+        });
+      });
+    }
+
+    function actualizarModelos() {
+      modeloSelect.innerHTML="";
+      lineaSelect.innerHTML="";
+      modeloSelect.disabled=true;
+      lineaSelect.disabled=true;
+      tipoGruaActual=null;
+      tipoGruaLabel.textContent="—";
+      const marca=marcaSelect.value;
+      if(!marca){
+        const opt=document.createElement("option");
+        opt.value="";
+        opt.textContent="Selecciona primero una marca";
+        modeloSelect.appendChild(opt);
+        return;
+      }
+      const marcaObj=vehiculos.find(v=>v.marca===marca);
+      if(!marcaObj)return;
+      const placeholder=document.createElement("option");
+      placeholder.value="";
+      placeholder.textContent="Selecciona un modelo";
+      modeloSelect.appendChild(placeholder);
+      marcaObj.modelos.forEach(m=>{
+        const opt=document.createElement("option");
+        opt.value=m.modelo;
+        opt.textContent=m.modelo;
+        modeloSelect.appendChild(opt);
+      });
+      modeloSelect.disabled=false;
+    }
+
+    function actualizarLineas(){
+      lineaSelect.innerHTML="";
+      lineaSelect.disabled=true;
+      tipoGruaActual=null;
+      tipoGruaLabel.textContent="—";
+      const marca=marcaSelect.value;
+      const modelo=modeloSelect.value;
+      if(!marca||!modelo){
+        const opt=document.createElement("option");
+        opt.value="";
+        opt.textContent="Selecciona primero un modelo";
+        lineaSelect.appendChild(opt);
+        return;
+      }
+      const marcaObj=vehiculos.find(v=>v.marca===marca);
+      if(!marcaObj)return;
+      const modeloObj=marcaObj.modelos.find(m=>m.modelo===modelo);
+      if(!modeloObj)return;
+      const placeholder=document.createElement("option");
+      placeholder.value="";
+      placeholder.textContent="Selecciona una línea";
+      lineaSelect.appendChild(placeholder);
+      modeloObj.lineas.forEach(l=>{
+        const opt=document.createElement("option");
+        opt.value=l;
+        opt.textContent=l;
+        lineaSelect.appendChild(opt);
+      });
+      lineaSelect.disabled=false;
+      tipoGruaActual=modeloObj.tipo_grua;
+      tipoGruaLabel.textContent=tipoGruaActual;
+    }
+
+    function actualizarKmDesdeMatriz(){
+      const proveedor=ciudadProveedorSelect.value;
+      const origen=origenSelect.value;
+      const destino=destinoSelect.value;
+      let usoMatriz=false;
+      if(proveedor&&origen){
+        const km=obtenerKm(proveedor,origen);
+        if(km!==null){
+          kmProvOrigenInput.value=km;
+          kmProvOrigenInput.readOnly=true;
+          usoMatriz=true;
+        }else{
+          kmProvOrigenInput.readOnly=false;
+          kmProvOrigenInput.placeholder="Ingresa km Proveedor → Origen";
+        }
+      }
+      if(origen&&destino){
+        const km2=obtenerKm(origen,destino);
+        if(km2!==null){
+          kmOrigenDestinoInput.value=km2;
+          kmOrigenDestinoInput.readOnly=true;
+          usoMatriz=true;
+        }else{
+          kmOrigenDestinoInput.readOnly=false;
+          kmOrigenDestinoInput.placeholder="Ingresa km Origen → Destino";
+        }
+      }
+      mensajeMatriz.textContent = usoMatriz
+        ? "Se han aplicado distancias desde la matriz. Puedes editar si es necesario."
+        : "No se encontraron distancias en la matriz. Por favor ingresa los km manualmente.";
+      evaluarZonaRoja(proveedor,origen,destino);
+    }
+
+    function evaluarZonaRoja(proveedor,origen,destino){
+      const hayZOMAC = esZOMAC(proveedor)||esZOMAC(origen)||esZOMAC(destino);
+      if(hayZOMAC){
+        zonaRojaCampos.style.display="grid";
+        zonaRojaInfo.textContent="Se detectó al menos un municipio ZOMAC. Si el tramo tiene zona roja, ingresa los km correspondientes.";
+        zonaRojaInfo.className="message success";
+      }else{
+        zonaRojaCampos.style.display="none";
+        kmZonaRojaInput.value="";
+        zonaRojaInfo.textContent="En este tramo no hay municipios ZOMAC (Zona Roja). No aplica recargo por zona roja.";
+        zonaRojaInfo.className="message info";
+      }
+    }
+
+    function calcularTarifado(){
+      const marca=marcaSelect.value;
+      const modelo=modeloSelect.value;
+      const linea=lineaSelect.value;
+      if(!marca||!modelo||!linea||!tipoGruaActual){
+        alert("Por favor selecciona marca, modelo y línea del vehículo.");
+        return;
+      }
+      const proveedor=ciudadProveedorSelect.value;
+      const origen=origenSelect.value;
+      const destino=destinoSelect.value;
+      if(!proveedor||!origen||!destino){
+        alert("Por favor selecciona ciudad del proveedor, origen y destino.");
+        return;
+      }
+      let kmProvOrigen=parseFloat(kmProvOrigenInput.value||"0");
+      let kmOrigenDestino=parseFloat(kmOrigenDestinoInput.value||"0");
+      if(isNaN(kmProvOrigen)||isNaN(kmOrigenDestino)){
+        alert("Por favor ingresa kilómetros válidos.");
+        return;
+      }
+      const kmTotales=kmProvOrigen+kmOrigenDestino;
+      const kmZonaRoja=parseFloat(kmZonaRojaInput.value||"0");
+      const kmDestapado=parseFloat(kmDestapadoInput.value||"0");
+
+      const tipo=tipoGruaActual;
+      const banderazo=tarifario.banderazo[tipo]||0;
+      const valorKm=tarifario.valorKm[tipo]||0;
+      const vZona=tarifario.recargos.zonaRoja;
+      const vDest=tarifario.recargos.destapado;
+
+      const subtotalKm=kmTotales*valorKm;
+      const recargoZona=kmZonaRoja*vZona;
+      const recargoDest=kmDestapado*vDest;
+      const total=banderazo+subtotalKm+recargoZona+recargoDest;
+      const topeMax=total*1.2;
+
+      tablaItemsBody.innerHTML="";
+      const filas=[
+        { concepto:"Banderazo", calculo:`${tipo}`, valor:banderazo },
+        { concepto:"Kilometraje total", calculo:`${kmTotales.toFixed(1)} km × ${formatoCOP(valorKm)}/km`, valor:subtotalKm },
+        { concepto:"Recargo Zona Roja (ZOMAC)", calculo: kmZonaRoja>0 ? `${kmZonaRoja.toFixed(1)} km × ${formatoCOP(vZona)}/km` : "No aplica", valor: recargoZona },
+        { concepto:"Recargo vía destapada", calculo: kmDestapado>0 ? `${kmDestapado.toFixed(1)} km × ${formatoCOP(vDest)}/km` : "No aplica", valor: recargoDest }
+      ];
+      filas.forEach(f=>{
+        const tr=document.createElement("tr");
+        const td1=document.createElement("td");
+        const td2=document.createElement("td");
+        const td3=document.createElement("td");
+        td1.textContent=f.concepto;
+        td2.textContent=f.calculo;
+        td3.textContent=formatoCOP(f.valor);
+        tr.appendChild(td1);tr.appendChild(td2);tr.appendChild(td3);
+        tablaItemsBody.appendChild(tr);
+      });
+
+      totalServicioTd.textContent=formatoCOP(total);
+      totalServicioGrandeSpan.textContent=formatoCOP(total);
+      topeMaximoDiv.textContent=formatoCOP(topeMax);
+      detalleRutaDiv.textContent=
+        `Proveedor: ${proveedor} | Origen: ${origen} | Destino: ${destino} | `+
+        `Km Proveedor→Origen: ${kmProvOrigen.toFixed(1)} | Km Origen→Destino: ${kmOrigenDestino.toFixed(1)}`;
+      resultadoDiv.style.display="block";
+    }
+
+    function limpiarFormulario(){
+      marcaSelect.value="";
+      modeloSelect.innerHTML='<option value="">Selecciona primero una marca</option>';
+      lineaSelect.innerHTML='<option value="">Selecciona primero un modelo</option>';
+      modeloSelect.disabled=true;
+      lineaSelect.disabled=true;
+      tipoGruaActual=null;
+      tipoGruaLabel.textContent="—";
+
+      ciudadProveedorSelect.value="";
+      origenSelect.value="";
+      destinoSelect.value="";
+      kmProvOrigenInput.value="";
+      kmProvOrigenInput.readOnly=false;
+      kmProvOrigenInput.placeholder="";
+      kmOrigenDestinoInput.value="";
+      kmOrigenDestinoInput.readOnly=false;
+      kmOrigenDestinoInput.placeholder="";
+      mensajeMatriz.textContent="La matriz de distancias se aplicará al cambiar las ciudades.";
+
+      zonaRojaCampos.style.display="none";
+      zonaRojaInfo.textContent="El sistema detectará ZOMAC según proveedor/origen/destino.";
+      zonaRojaInfo.className="message info";
+      kmZonaRojaInput.value="";
+      kmDestapadoInput.value="";
+      resultadoDiv.style.display="none";
+    }
+
+    document.addEventListener("DOMContentLoaded",()=>{
+      initVehiculos();
+      initCiudades();
+      valorZonaRojaLabel.textContent=formatoCOP(tarifario.recargos.zonaRoja)+"/km";
+      valorDestapadoLabel.textContent=formatoCOP(tarifario.recargos.destapado)+"/km";
+
+      marcaSelect.addEventListener("change",actualizarModelos);
+      modeloSelect.addEventListener("change",actualizarLineas);
+      ciudadProveedorSelect.addEventListener("change",actualizarKmDesdeMatriz);
+      origenSelect.addEventListener("change",actualizarKmDesdeMatriz);
+      destinoSelect.addEventListener("change",actualizarKmDesdeMatriz);
+      calcularBtn.addEventListener("click",calcularTarifado);
+      limpiarBtn.addEventListener("click",limpiarFormulario);
+    });
+  </script>
+</body>
+</html>
