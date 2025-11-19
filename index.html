@@ -430,86 +430,317 @@
 
     const vehiculos = [
       {
-        marca: "Chevrolet",
-        modelos: [
-          { modelo: "Spark", lineas: ["Lite", "GT", "Life", "Go"], tipo_grua: "liviano" },
-          { modelo: "Sail", lineas: ["LT", "LS", "Sedán", "HB"], tipo_grua: "liviano" },
-          { modelo: "Onix", lineas: ["Joy", "LTZ", "Turbo"], tipo_grua: "liviano" },
-          { modelo: "Tracker", lineas: ["1.2 Turbo", "Premier"], tipo_grua: "liviano" },
-          { modelo: "NHR", lineas: ["Euro IV", "Euro V"], tipo_grua: "tipo300" },
-          { modelo: "NKR", lineas: ["Euro IV", "Euro V"], tipo_grua: "tipo400" },
-          { modelo: "NQR", lineas: ["Euro IV", "Euro V"], tipo_grua: "tipo600" },
-          { modelo: "FVR", lineas: ["Euro IV", "Euro V"], tipo_grua: "tipo900" }
-        ]
-      },
-      {
-        marca: "Renault",
-        modelos: [
-          { modelo: "Logan", lineas: ["Life", "Zen", "Intens"], tipo_grua: "liviano" },
-          { modelo: "Sandero", lineas: ["Life", "Zen", "Stepway"], tipo_grua: "liviano" },
-          { modelo: "Duster", lineas: ["Zen", "Intens", "Oroch"], tipo_grua: "liviano" },
-          { modelo: "Master", lineas: ["Furgón", "Pasajeros"], tipo_grua: "tipo300" }
-        ]
-      },
-      {
-        marca: "Toyota",
-        modelos: [
-          { modelo: "Hilux", lineas: ["DX", "SR", "SRV"], tipo_grua: "liviano" },
-          { modelo: "Fortuner", lineas: ["2.7", "Diésel"], tipo_grua: "liviano" },
-          { modelo: "Prado", lineas: ["TX", "TX-L", "VX"], tipo_grua: "liviano" },
-          { modelo: "Coaster", lineas: ["Bus 26 pasajeros"], tipo_grua: "tipo900" }
-        ]
-      },
-      {
-        marca: "Hyundai",
-        modelos: [
-          { modelo: "i10", lineas: ["Pop", "Grand"], tipo_grua: "liviano" },
-          { modelo: "Accent", lineas: ["GL", "GLS"], tipo_grua: "liviano" },
-          { modelo: "H1", lineas: ["9 pasajeros", "12 pasajeros"], tipo_grua: "tipo300" }
-        ]
-      },
-      {
-        marca: "Ford",
-        modelos: [
-          { modelo: "Fiesta", lineas: ["SE", "Titanium"], tipo_grua: "liviano" },
-          { modelo: "EcoSport", lineas: ["SE", "Titanium"], tipo_grua: "liviano" },
-          { modelo: "Ranger", lineas: ["XL", "XLT", "Limited"], tipo_grua: "liviano" },
-          { modelo: "Transit", lineas: ["Panel", "Pasajeros"], tipo_grua: "tipo300" }
-        ]
-      },
-      {
-        marca: "Hino",
-        modelos: [
-          { modelo: "Dutro", lineas: ["XL", "Euro IV"], tipo_grua: "tipo400" },
-          { modelo: "FC", lineas: ["Euro IV"], tipo_grua: "tipo600" },
-          { modelo: "GH", lineas: ["Euro IV"], tipo_grua: "tipo900" }
-        ]
-      },
-      {
-        marca: "Kenworth",
-        modelos: [
-          { modelo: "T800", lineas: ["Tractomula", "Dumper", "Carrotanque", "Volco", "Lowboy"], tipo_grua: "tipo900" },
-          { modelo: "T680", lineas: ["Tractocamión"], tipo_grua: "tipo900" },
-          { modelo: "T660", lineas: ["Tractomula"], tipo_grua: "tipo900" },
-          { modelo: "W900", lineas: ["Tractomula", "Clásico"], tipo_grua: "tipo900" },
-          { modelo: "T880", lineas: ["Mixer", "Dumper", "Volco"], tipo_grua: "tipo900" },
-          { modelo: "T370", lineas: ["Camión Medio", "Reparto"], tipo_grua: "tipo600" },
-          { modelo: "K270", lineas: ["Liviano de reparto"], tipo_grua: "tipo400" }
-        ]
-      },
-      {
-        marca: "International",
-        modelos: [
-          { modelo: "4700", lineas: ["Furgón", "Estacas", "Turbo"], tipo_grua: "tipo600" },
-          { modelo: "4900", lineas: ["Estacas", "Volco", "Doble Troque"], tipo_grua: "tipo900" },
-          { modelo: "DuraStar 4300", lineas: ["Furgón", "Planchón", "Reparto"], tipo_grua: "tipo600" },
-          { modelo: "DuraStar 4400", lineas: ["Furgón Pesado", "Cabezote Medio"], tipo_grua: "tipo900" },
-          { modelo: "ProStar", lineas: ["Tractocamión"], tipo_grua: "tipo900" },
-          { modelo: "WorkStar 7600", lineas: ["Mixer", "Dumper", "Volco"], tipo_grua: "tipo900" },
-          { modelo: "WorkStar 7500", lineas: ["Camión Pesado"], tipo_grua: "tipo900" },
-          { modelo: "LT Series", lineas: ["Tractomula"], tipo_grua: "tipo900" }
-        ]
-      }
+        // RENAULT
+{
+  marca: "Renault",
+  modelos: [
+    { modelo: "Kwid",    lineas: ["Life", "Zen", "Outsider"],           tipo_grua: "liviano" },
+    { modelo: "Logan",   lineas: ["Life", "Zen", "Intens"],             tipo_grua: "liviano" },
+    { modelo: "Sandero", lineas: ["Life", "Zen", "Intens"],             tipo_grua: "liviano" },
+    { modelo: "Stepway", lineas: ["Zen", "Intens", "Outdoor"],          tipo_grua: "liviano" },
+    { modelo: "Duster",  lineas: ["Zen", "Intens", "Iconic"],           tipo_grua: "liviano" },
+    { modelo: "Oroch",   lineas: ["Zen", "Outsider"],                   tipo_grua: "liviano" },
+    { modelo: "Koleos",  lineas: ["Zen", "Intens"],                     tipo_grua: "liviano" },
+    { modelo: "Alaskan", lineas: ["Zen", "Intens"],                     tipo_grua: "liviano" },
+    { modelo: "Kangoo",  lineas: ["Pasajeros", "Furgón"],               tipo_grua: "liviano" },
+    { modelo: "Master",  lineas: ["Furgón", "Pasajeros", "Chasis"],     tipo_grua: "tipo300" }
+  ]
+},
+js
+Copiar código
+// CHEVROLET
+{
+  marca: "Chevrolet",
+  modelos: [
+    { modelo: "Spark GT",      lineas: ["LT", "Full"],                    tipo_grua: "liviano" },
+    { modelo: "Spark Life",    lineas: ["Life"],                          tipo_grua: "liviano" },
+    { modelo: "Sail",          lineas: ["LT", "LS", "Sedán", "HB"],       tipo_grua: "liviano" },
+    { modelo: "Onix",          lineas: ["Joy", "LTZ", "Turbo"],          tipo_grua: "liviano" },
+    { modelo: "Joy",           lineas: ["Sedán", "HB"],                  tipo_grua: "liviano" },
+    { modelo: "Tracker",       lineas: ["LS", "LTZ", "Premier"],         tipo_grua: "liviano" },
+    { modelo: "Captiva",       lineas: ["Sport", "Turbo"],               tipo_grua: "liviano" },
+    { modelo: "Colorado",      lineas: ["4x2", "4x4"],                   tipo_grua: "liviano" },
+    { modelo: "N300",          lineas: ["Pasajeros", "Cargo"],           tipo_grua: "liviano" },
+    { modelo: "NHR",           lineas: ["Euro IV", "Euro V"],            tipo_grua: "tipo300" },
+    { modelo: "NKR",           lineas: ["Euro IV", "Euro V"],            tipo_grua: "tipo400" },
+    { modelo: "NPR",           lineas: ["Euro IV", "Euro V"],            tipo_grua: "tipo400" },
+    { modelo: "NQR",           lineas: ["Euro IV", "Euro V"],            tipo_grua: "tipo600" },
+    { modelo: "FRR",           lineas: ["Euro IV", "Euro V"],            tipo_grua: "tipo600" },
+    { modelo: "FVR",           lineas: ["Euro IV", "Euro V"],            tipo_grua: "tipo900" },
+    { modelo: "FVZ",           lineas: ["Volco", "Chasis"],              tipo_grua: "tipo900" }
+  ]
+},
+js
+Copiar código
+// HYUNDAI
+{
+  marca: "Hyundai",
+  modelos: [
+    { modelo: "i10",       lineas: ["Pop", "Grand"],                     tipo_grua: "liviano" },
+    { modelo: "Grand i10", lineas: ["Sedán", "HB"],                      tipo_grua: "liviano" },
+    { modelo: "Accent",    lineas: ["GL", "GLS"],                        tipo_grua: "liviano" },
+    { modelo: "Elantra",   lineas: ["GLS"],                              tipo_grua: "liviano" },
+    { modelo: "Tucson",    lineas: ["GLS", "Turbo"],                     tipo_grua: "liviano" },
+    { modelo: "Creta",     lineas: ["GL", "Premium"],                    tipo_grua: "liviano" },
+    { modelo: "Santa Fe",  lineas: ["GLS", "Limited"],                   tipo_grua: "liviano" },
+    { modelo: "H1",        lineas: ["9 pasajeros", "12 pasajeros"],      tipo_grua: "tipo300" },
+    { modelo: "HD65",      lineas: ["Chasis", "Furgón"],                 tipo_grua: "tipo300" },
+    { modelo: "HD78",      lineas: ["Chasis", "Furgón"],                 tipo_grua: "tipo400" }
+  ]
+},
+js
+Copiar código
+// SUZUKI
+{
+  marca: "Suzuki",
+  modelos: [
+    { modelo: "Alto",        lineas: ["800", "K10"],                     tipo_grua: "liviano" },
+    { modelo: "Celerio",     lineas: ["GL", "GLX"],                      tipo_grua: "liviano" },
+    { modelo: "Swift",       lineas: ["GL", "GLX", "Sport"],             tipo_grua: "liviano" },
+    { modelo: "Baleno",      lineas: ["GL", "GLX"],                      tipo_grua: "liviano" },
+    { modelo: "Dzire",       lineas: ["GL", "GLX"],                      tipo_grua: "liviano" },
+    { modelo: "Vitara",      lineas: ["Live", "Gls", "AllGrip"],         tipo_grua: "liviano" },
+    { modelo: "Grand Vitara",lineas: ["3 puertas", "5 puertas"],         tipo_grua: "liviano" },
+    { modelo: "S-Cross",     lineas: ["GL", "GLX"],                      tipo_grua: "liviano" },
+    { modelo: "Jimny",       lineas: ["3 puertas", "5 puertas"],         tipo_grua: "liviano" },
+    { modelo: "APV",         lineas: ["Pasajeros", "Furgón"],            tipo_grua: "tipo300" }
+  ]
+},
+js
+Copiar código
+// VOLKSWAGEN
+{
+  marca: "Volkswagen",
+  modelos: [
+    { modelo: "Gol",      lineas: ["Trendline", "Comfortline"],          tipo_grua: "liviano" },
+    { modelo: "Voyage",   lineas: ["Trendline", "Comfortline"],          tipo_grua: "liviano" },
+    { modelo: "Polo",     lineas: ["Trendline", "Highline"],             tipo_grua: "liviano" },
+    { modelo: "Jetta",    lineas: ["Trendline", "Highline"],             tipo_grua: "liviano" },
+    { modelo: "T-Cross",  lineas: ["Trendline", "Comfortline"],          tipo_grua: "liviano" },
+    { modelo: "Nivus",    lineas: ["Highline"],                          tipo_grua: "liviano" },
+    { modelo: "Tiguan",   lineas: ["Comfortline", "Highline"],           tipo_grua: "liviano" },
+    { modelo: "Amarok",   lineas: ["4x2", "4x4", "V6"],                  tipo_grua: "liviano" },
+    { modelo: "Transporter", lineas: ["Panel", "Pasajeros"],             tipo_grua: "tipo300" }
+  ]
+},
+js
+Copiar código
+// FORD
+{
+  marca: "Ford",
+  modelos: [
+    { modelo: "Fiesta",   lineas: ["SE", "Titanium"],                    tipo_grua: "liviano" },
+    { modelo: "Focus",    lineas: ["SE", "Titanium"],                    tipo_grua: "liviano" },
+    { modelo: "EcoSport", lineas: ["SE", "Titanium"],                    tipo_grua: "liviano" },
+    { modelo: "Escape",   lineas: ["SE", "Titanium", "Hybrid"],          tipo_grua: "liviano" },
+    { modelo: "Edge",     lineas: ["SEL", "Titanium"],                   tipo_grua: "liviano" },
+    { modelo: "Explorer", lineas: ["XLT", "Limited"],                    tipo_grua: "liviano" },
+    { modelo: "Ranger",   lineas: ["XL", "XLT", "Limited"],              tipo_grua: "liviano" },
+    { modelo: "F-150",    lineas: ["XL", "XLT", "Lariat", "Raptor"],     tipo_grua: "liviano" },
+    { modelo: "Transit",  lineas: ["Panel", "Pasajeros"],                tipo_grua: "tipo300" }
+  ]
+},
+js
+Copiar código
+// FOTON
+{
+  marca: "Foton",
+  modelos: [
+    { modelo: "Tunland", lineas: ["Diesel", "4x4"],                      tipo_grua: "liviano" },
+    { modelo: "Aumark",  lineas: ["C", "S", "Liviano"],                  tipo_grua: "tipo400" },
+    { modelo: "Auman",   lineas: ["Doble Troque", "Tractomula"],         tipo_grua: "tipo900" },
+    { modelo: "BJ",      lineas: ["Medio", "Furgón"],                    tipo_grua: "tipo600" }
+  ]
+},
+js
+Copiar código
+// JEEP
+{
+  marca: "Jeep",
+  modelos: [
+    { modelo: "Renegade",      lineas: ["Sport", "Longitude", "Trailhawk"], tipo_grua: "liviano" },
+    { modelo: "Compass",       lineas: ["Sport", "Longitude", "Limited"],   tipo_grua: "liviano" },
+    { modelo: "Cherokee",      lineas: ["Sport", "Limited"],                tipo_grua: "liviano" },
+    { modelo: "Grand Cherokee",lineas: ["Laredo", "Limited", "Overland"],   tipo_grua: "liviano" },
+    { modelo: "Wrangler",      lineas: ["2 puertas", "4 puertas"],          tipo_grua: "liviano" },
+    { modelo: "Gladiator",     lineas: ["Sport", "Rubicon"],                tipo_grua: "liviano" }
+  ]
+},
+js
+Copiar código
+// NISSAN
+{
+  marca: "Nissan",
+  modelos: [
+    { modelo: "March",    lineas: ["Sense", "Advance"],                 tipo_grua: "liviano" },
+    { modelo: "Versa",    lineas: ["Sense", "Advance", "Exclusive"],   tipo_grua: "liviano" },
+    { modelo: "Sentra",   lineas: ["Sense", "Advance", "Exclusive"],   tipo_grua: "liviano" },
+    { modelo: "Tiida",    lineas: ["Sedán", "HB"],                     tipo_grua: "liviano" },
+    { modelo: "Kicks",    lineas: ["Sense", "Advance", "Exclusive"],   tipo_grua: "liviano" },
+    { modelo: "Qashqai",  lineas: ["Sense", "Advance"],                tipo_grua: "liviano" },
+    { modelo: "X-Trail",  lineas: ["Sense", "Advance"],                tipo_grua: "liviano" },
+    { modelo: "Frontier", lineas: ["LE", "SE", "XE"],                  tipo_grua: "liviano" },
+    { modelo: "NP300",    lineas: ["Chasis", "Estacas"],               tipo_grua: "liviano" },
+    { modelo: "Urvan",    lineas: ["Pasajeros", "Panel"],              tipo_grua: "tipo300" }
+  ]
+},
+js
+Copiar código
+// KIA
+{
+  marca: "Kia",
+  modelos: [
+    { modelo: "Picanto",  lineas: ["LX", "EX"],                        tipo_grua: "liviano" },
+    { modelo: "Rio",      lineas: ["Sedán", "HB"],                     tipo_grua: "liviano" },
+    { modelo: "Cerato",   lineas: ["Sedán", "Forte"],                  tipo_grua: "liviano" },
+    { modelo: "Soul",     lineas: ["LX", "EX"],                        tipo_grua: "liviano" },
+    { modelo: "Sportage", lineas: ["LX", "EX", "Revolution"],          tipo_grua: "liviano" },
+    { modelo: "Sorento",  lineas: ["LX", "EX"],                        tipo_grua: "liviano" },
+    { modelo: "Niro",     lineas: ["Hybrid"],                          tipo_grua: "liviano" },
+    { modelo: "K2700",    lineas: ["Estacas", "Furgón"],               tipo_grua: "tipo300" }
+  ]
+},
+js
+Copiar código
+// BMW
+{
+  marca: "BMW",
+  modelos: [
+    { modelo: "Serie 1", lineas: ["118i", "120i"],                     tipo_grua: "liviano" },
+    { modelo: "Serie 2", lineas: ["Gran Coupé"],                       tipo_grua: "liviano" },
+    { modelo: "Serie 3", lineas: ["320i", "330i"],                     tipo_grua: "liviano" },
+    { modelo: "Serie 5", lineas: ["520i", "530i"],                     tipo_grua: "liviano" },
+    { modelo: "X1",      lineas: ["sDrive", "xDrive"],                 tipo_grua: "liviano" },
+    { modelo: "X3",      lineas: ["xDrive"],                           tipo_grua: "liviano" },
+    { modelo: "X5",      lineas: ["xDrive"],                           tipo_grua: "liviano" },
+    { modelo: "X6",      lineas: ["xDrive"],                           tipo_grua: "liviano" }
+  ]
+},
+js
+Copiar código
+// RAM
+{
+  marca: "RAM",
+  modelos: [
+    { modelo: "700",   lineas: ["Cabina sencilla", "Doble cabina"],    tipo_grua: "liviano" },
+    { modelo: "1000",  lineas: ["4x2", "4x4"],                         tipo_grua: "liviano" },
+    { modelo: "1500",  lineas: ["Laramie", "Rebel", "Limited"],        tipo_grua: "liviano" },
+    { modelo: "2500",  lineas: ["Laramie", "Heavy Duty"],              tipo_grua: "liviano" }
+  ]
+},
+js
+Copiar código
+// AUDI
+{
+  marca: "Audi",
+  modelos: [
+    { modelo: "A1",  lineas: ["Sportback"],                            tipo_grua: "liviano" },
+    { modelo: "A3",  lineas: ["Sedán", "Sportback"],                   tipo_grua: "liviano" },
+    { modelo: "A4",  lineas: ["Sedán"],                                tipo_grua: "liviano" },
+    { modelo: "A5",  lineas: ["Coupé", "Sportback"],                   tipo_grua: "liviano" },
+    { modelo: "Q2",  lineas: ["TFSI"],                                 tipo_grua: "liviano" },
+    { modelo: "Q3",  lineas: ["TFSI"],                                 tipo_grua: "liviano" },
+    { modelo: "Q5",  lineas: ["TFSI"],                                 tipo_grua: "liviano" },
+    { modelo: "Q7",  lineas: ["TFSI"],                                 tipo_grua: "liviano" }
+  ]
+},
+js
+Copiar código
+// KENWORTH  (ya lo tienes, pero aquí va completo por si quieres reemplazar)
+{
+  marca: "Kenworth",
+  modelos: [
+    { modelo: "T800",  lineas: ["Tractomula", "Dumper", "Carrotanque", "Volco", "Lowboy"], tipo_grua: "tipo900" },
+    { modelo: "T680",  lineas: ["Tractocamión"],                    tipo_grua: "tipo900" },
+    { modelo: "T660",  lineas: ["Tractomula"],                      tipo_grua: "tipo900" },
+    { modelo: "W900",  lineas: ["Tractomula", "Clásico"],           tipo_grua: "tipo900" },
+    { modelo: "T880",  lineas: ["Mixer", "Dumper", "Volco"],        tipo_grua: "tipo900" },
+    { modelo: "T370",  lineas: ["Camión Medio", "Reparto"],         tipo_grua: "tipo600" },
+    { modelo: "K270",  lineas: ["Liviano de reparto"],              tipo_grua: "tipo400" }
+  ]
+},
+js
+Copiar código
+// TOYOTA
+{
+  marca: "Toyota",
+  modelos: [
+    { modelo: "Yaris",     lineas: ["Sedán", "HB"],                   tipo_grua: "liviano" },
+    { modelo: "Corolla",   lineas: ["Sedán", "Hybrid"],               tipo_grua: "liviano" },
+    { modelo: "Hilux",     lineas: ["DX", "SR", "SRV"],               tipo_grua: "liviano" },
+    { modelo: "Fortuner",  lineas: ["2.7", "Diésel"],                 tipo_grua: "liviano" },
+    { modelo: "Prado",     lineas: ["TX", "TX-L", "VX"],              tipo_grua: "liviano" },
+    { modelo: "4Runner",   lineas: ["SR5", "Limited"],                tipo_grua: "liviano" },
+    { modelo: "Land Cruiser", lineas: ["70", "200"],                  tipo_grua: "liviano" },
+    { modelo: "Coaster",   lineas: ["Bus 26 pasajeros"],              tipo_grua: "tipo900" }
+  ]
+},
+js
+Copiar código
+// MAZDA
+{
+  marca: "Mazda",
+  modelos: [
+    { modelo: "Mazda 2",  lineas: ["Sedán", "HB"],                   tipo_grua: "liviano" },
+    { modelo: "Mazda 3",  lineas: ["Sedán", "HB"],                   tipo_grua: "liviano" },
+    { modelo: "Mazda 6",  lineas: ["Sedán"],                         tipo_grua: "liviano" },
+    { modelo: "CX-3",     lineas: ["Touring", "Grand Touring"],      tipo_grua: "liviano" },
+    { modelo: "CX-30",    lineas: ["Touring", "Grand Touring"],      tipo_grua: "liviano" },
+    { modelo: "CX-5",     lineas: ["Touring", "Grand Touring"],      tipo_grua: "liviano" },
+    { modelo: "BT-50",    lineas: ["4x2", "4x4"],                    tipo_grua: "liviano" }
+  ]
+},
+js
+Copiar código
+// JINBEI
+{
+  marca: "Jinbei",
+  modelos: [
+    { modelo: "Haise",  lineas: ["Pasajeros", "Panel"],              tipo_grua: "tipo300" },
+    { modelo: "S30",    lineas: ["Pasajeros"],                       tipo_grua: "liviano" },
+    { modelo: "X30",    lineas: ["Pasajeros", "Carga"],              tipo_grua: "tipo300" }
+  ]
+},
+js
+Copiar código
+// YAMAHA  (motos → siempre grúa liviana)
+{
+  marca: "Yamaha",
+  modelos: [
+    { modelo: "FZ",      lineas: ["2.0", "3.0"],                     tipo_grua: "liviano" },
+    { modelo: "XTZ",     lineas: ["125", "150", "250"],              tipo_grua: "liviano" },
+    { modelo: "NMAX",    lineas: ["155"],                            tipo_grua: "liviano" },
+    { modelo: "YBR",     lineas: ["125"],                            tipo_grua: "liviano" },
+    { modelo: "Crypton", lineas: ["T105"],                           tipo_grua: "liviano" },
+    { modelo: "R3",      lineas: ["321"],                            tipo_grua: "liviano" }
+  ]
+},
+js
+Copiar código
+// AGRALE  (buses y camiones)
+{
+  marca: "Agrale",
+  modelos: [
+    { modelo: "MA 8.5",  lineas: ["Chasis bus"],                     tipo_grua: "tipo600" },
+    { modelo: "MA 9.2",  lineas: ["Chasis bus"],                     tipo_grua: "tipo600" },
+    { modelo: "MA 10.0", lineas: ["Chasis bus"],                     tipo_grua: "tipo900" },
+    { modelo: "MA 15.0", lineas: ["Bus urbano", "Buseta"],           tipo_grua: "tipo900" }
+  ]
+},
+js
+Copiar código
+// FIAT
+{
+  marca: "Fiat",
+  modelos: [
+    { modelo: "Uno",     lineas: ["Way", "Attractive"],              tipo_grua: "liviano" },
+    { modelo: "Palio",   lineas: ["Fire", "Attractive"],             tipo_grua: "liviano" },
+    { modelo: "Siena",   lineas: ["Fire", "EL"],                     tipo_grua: "liviano" },
+    { modelo: "Punto",   lineas: ["Attractive", "Sporting"],         tipo_grua: "liviano" },
+    { modelo: "500",     lineas: ["Pop", "Lounge", "Sport"],         tipo_grua: "liviano" },
+    { modelo: "Fiorino", lineas: ["Carga"],                          tipo_grua: "tipo300" }
+  ]
+              }
     ];
 
     const ciudades = ["Bogotá", "Chía", "Zipaquirá", "Bucaramanga", "Corinto", "Cali"];
